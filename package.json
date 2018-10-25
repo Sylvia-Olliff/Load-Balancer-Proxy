@@ -1,0 +1,42 @@
+{
+  "name": "load-balancer",
+  "version": "1.0.1",
+  "description": "Load Balancer and main gateway for R&B web services",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./out/,.ejs,**/*.test.js,**/__mocks__,./views,./public --copy-files --source-maps",
+    "postbuild": "rimraf dist/public && mkdir -p dist/public && cp -R public/* dist/public/",
+    "start": "npm run build && cd ./dist && node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf dist/ ",
+    "predeploy": "npm run build && rimraf /QOpenSys/PRO/Load-Balancer",
+    "deploy": "mkdir -p /QOpenSys/PRO/Load-Balancer && cp -R ./dist/* /QOpenSys/PRO/Load-Balancer && cp ./package.json /QOpenSys/PRO/Load-Balancer/",
+    "postdeploy": "cd /QOpenSys/PRO/Load-Balancer && npm install --production && npm dedup && cd public"
+  },
+  "author": "Joe Olliff",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.3",
+    "config": "^1.30.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.21",
+    "morgan": "^1.9.0",
+    "request": "^2.87.0",
+    "rimraf": "^2.6.2",
+    "socket.io": "^2.1.1",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "babel-plugin-dynamic-import-node": "^2.0.0",
+    "regenerator-runtime": "^0.12.1"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "BASE": "http://as400.rogers-brown.com:",
+  "PORT": 8001,
+  "SERVERS": [
+    {
+      "name": "Rating",
+      "port": 8012,
+      "status": {
+        "isUp": false,
+        "upTime": ""
+      }
+    },
+    {
+      "name": "Upload",
+      "port": 8013,
+      "status": {
+        "isUp": false,
+        "upTime": ""
+      }
+    },
+    {
+      "name": "Docs",
+      "port": 8014,
+      "status": {
+        "isUp": false,
+        "upTime": ""
+      }
+    }
+  ]
+}

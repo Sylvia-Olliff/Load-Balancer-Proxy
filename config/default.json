@@ -1,0 +1,18 @@
+{
+  "BASE": "http://as400.rogers-brown.com:",
+  "PORT": 8101,
+  "SERVERS": [
+    {
+      "name": "Rating",
+      "port": 8112
+    },
+    {
+      "name": "Upload",
+      "port": 8113
+    },
+    {
+      "name": "Docs",
+      "port": 8114
+    }
+  ]
+}
